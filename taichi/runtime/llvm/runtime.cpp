@@ -42,9 +42,9 @@ using parallel_for_type = void (*)(void *thread_pool,
                                    void (*func)(void *, int thread_id, int i));
 
 #if defined(__linux__) && !ARCH_cuda && defined(TI_ARCH_x64)
-__asm__(".symver logf,logf@GLIBC_2.2.5");
-__asm__(".symver powf,powf@GLIBC_2.2.5");
-__asm__(".symver expf,expf@GLIBC_2.2.5");
+// __asm__(".symver logf,logf@GLIBC_2.2.5");
+// __asm__(".symver powf,powf@GLIBC_2.2.5");
+// __asm__(".symver expf,expf@GLIBC_2.2.5");
 #endif
 
 // For accessing struct fields

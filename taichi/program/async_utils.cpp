@@ -73,7 +73,7 @@ std::string AsyncState::name() const {
 std::size_t AsyncState::perfect_hash(void *ptr, AsyncState::Type type) {
   static_assert((int)Type::undefined < 8);
   static_assert(std::alignment_of<SNode>() % 8 == 0);
-  static_assert(std::alignment_of<Kernel>() % 8 == 0);
+  // static_assert(std::alignment_of<Kernel>() % 8 == 0);
   return (std::size_t)ptr ^ (std::size_t)type;
 }
 

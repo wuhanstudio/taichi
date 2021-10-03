@@ -51,13 +51,13 @@ Program::Program(Arch desired_arch) : snode_rw_accessors_bank_(this) {
 #else
   // Enforce flush to zero on arm64 CPUs
   // https://developer.arm.com/documentation/100403/0201/register-descriptions/advanced-simd-and-floating-point-registers/aarch64-register-descriptions/fpcr--floating-point-control-register?lang=en
-  std::uint64_t fpcr;
+  std::uint32_t fpscr;
   __asm__ __volatile__("");
-  __asm__ __volatile__("MRS %0, FPCR" : "=r"(fpcr));
+  __asm__ __volatile__("VMRS %0, FPSCR" : "=r"(fpscr));
   __asm__ __volatile__("");
-  __asm__ __volatile__("MSR FPCR, %0"
+  __asm__ __volatile__("VMSR FPSCR, %0"
                        :
-                       : "ri"(fpcr | (1 << 24)));  // Bit 24 is FZ
+                       : "ri"(fpscr | (1 << 24)));  // Bit 24 is FZ
   __asm__ __volatile__("");
 #endif
   config = default_compile_config;

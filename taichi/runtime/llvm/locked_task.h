@@ -4,7 +4,7 @@ template <typename T, typename G>
 class lock_guard {
  public:
   lock_guard(Ptr lock, const T &func, const G &test) {
-#if ARCH_x64 || ARCH_arm64
+#if ARCH_x64 || ARCH_arm64 || ARCH_arm
     mutex_lock_i32(lock);
     if (test())
       func();

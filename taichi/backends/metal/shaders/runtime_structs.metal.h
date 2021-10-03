@@ -19,7 +19,7 @@
 
 static_assert(taichi_max_num_indices == 8,
               "Please update kTaichiMaxNumIndices");
-static_assert(sizeof(char *) == 8, "Metal pointers are 64-bit.");
+// static_assert(sizeof(char *) == 8, "Metal pointers are 64-bit.");
 #define METAL_BEGIN_RUNTIME_STRUCTS_DEF
 #define METAL_END_RUNTIME_STRUCTS_DEF
 
